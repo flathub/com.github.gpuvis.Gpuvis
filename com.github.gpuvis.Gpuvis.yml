@@ -1,6 +1,6 @@
   "app-id": "com.github.gpuvis.Gpuvis"
   "runtime": "org.freedesktop.Platform"
-  "runtime-version": "21.08"
+  "runtime-version": "25.08"
   "sdk": "org.freedesktop.Sdk"
   "command": "gpuvis"
   finish-args:
@@ -15,30 +15,33 @@
     - --filesystem=xdg-documents
     # OpenGL rendering
     - --device=dri
+  cleanup:
+    - /include
+    - /lib/cmake
+    - /lib/pkgconfig
+    - /share/doc
   modules:
     - name: rapidjson
       buildsystem: cmake
-      cleanup:
-        - /include
-        - /lib/cmake
-        - /lib/pkgconfig
-        - /share/doc
+      config-opts:
+        - -DRAPIDJSON_BUILD_DOC=OFF
+        - -DRAPIDJSON_BUILD_EXAMPLES=OFF
+        - -DRAPIDJSON_BUILD_TESTS=OFF
+
       sources:
         - type: git
           url: https://github.com/Tencent/rapidjson.git
-          commit: 1c2c8e085a8b2561dff17bedb689d2eb0609b689
+          commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
 
     - name: gpuvis
       buildsystem: meson
-      config-opts:
-        - --buildtype=debug
       post-install:
         - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ../${FLATPAK_ID}.metainfo.xml
         - install -Dm644 --target-directory=${FLATPAK_DEST}/share/applications ../${FLATPAK_ID}.desktop
         - install -Dm644 --target-directory=${FLATPAK_DEST}/share/icons/hicolor/scalable/apps ../${FLATPAK_ID}.svg
       sources:
-        - type: archive
-          url: https://github.com/mikesart/gpuvis/archive/3fe8fa89117ecb7aec591699ccb1e89f2fb80a2c.tar.gz
-          sha256: fc6927a575a73a32c74294adf585f1b34e1e80b1831c59505db7abdfa781a08d
+        - type: git
+          url: https://github.com/mikesart/gpuvis.git
+          commit: 25eeb5597f9f4f19758bbfc3558eefcb5c906662
         - type: file
           path: com.github.gpuvis.Gpuvis.svg
