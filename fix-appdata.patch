@@ -1,0 +1,40 @@
+From 03302d63bec4171107673d9eb0a5a1117b9e36b4 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Tue, 6 Jan 2026 23:19:35 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+---
+ com.github.gpuvis.Gpuvis.metainfo.xml | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/com.github.gpuvis.Gpuvis.metainfo.xml b/com.github.gpuvis.Gpuvis.metainfo.xml
+index 329dee7..242886a 100644
+--- a/com.github.gpuvis.Gpuvis.metainfo.xml
++++ b/com.github.gpuvis.Gpuvis.metainfo.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component type="desktop">
++<component type="desktop-application">
+   <id>com.github.gpuvis.Gpuvis</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>MIT</project_license>
+@@ -23,12 +23,11 @@
+       <image>https://raw.githubusercontent.com/mikesart/gpuvis/master/images/gpuvis.jpg</image>
+     </screenshot>
+   </screenshots>
+-  <content_rating type="oars-1.1">
+-    <content_attribute id="social-chat">intense</content_attribute>
+-    <content_attribute id="social-audio">intense</content_attribute>
+-    <content_attribute id="social-contacts">intense</content_attribute>
+-  </content_rating>
++  <content_rating type="oars-1.1"/>
+   <url type="homepage">https://github.com/mikesart/gpuvis/wiki</url>
++  <url type="bugtracker">https://github.com/mikesart/gpuvis/issues</url>
++  <url type="vcs-browser">https://github.com/mikesart/gpuvis</url>
++  <launchable type="desktop-id">com.github.gpuvis.Gpuvis.desktop</launchable>
+   <developer_name>Michael Sartain</developer_name>
+   <update_contact>mikesart@fastmail.com</update_contact>
+ </component>
+--
+libgit2 1.7.2
+

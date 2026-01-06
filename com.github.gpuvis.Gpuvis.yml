@@ -31,6 +31,7 @@
       sources:
         - type: git
           url: https://github.com/Tencent/rapidjson.git
+          # The latest commit from the repository
           commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
 
     - name: gpuvis
@@ -42,6 +43,7 @@
       sources:
         - type: git
           url: https://github.com/mikesart/gpuvis.git
-          commit: 25eeb5597f9f4f19758bbfc3558eefcb5c906662
-        - type: file
-          path: com.github.gpuvis.Gpuvis.svg
+          tag: 'v0.2'
+          commit: fe3d30268eedee65fdbfc06275d0762fd743c469
+        - type: patch
+          path: fix-appdata.patch
