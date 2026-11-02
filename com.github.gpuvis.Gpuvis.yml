@@ -1,8 +1,8 @@
-  "app-id": "com.github.gpuvis.Gpuvis"
-  "runtime": "org.freedesktop.Platform"
-  "runtime-version": "25.08"
-  "sdk": "org.freedesktop.Sdk"
-  "command": "gpuvis"
+  app-id: com.github.gpuvis.Gpuvis
+  runtime: org.freedesktop.Platform
+  runtime-version: '26.08'
+  sdk: org.freedesktop.Sdk
+  command: gpuvis
   finish-args:
     # X11 + XShm access
     - --share=ipc
@@ -37,13 +37,14 @@
     - name: gpuvis
       buildsystem: meson
       post-install:
-        - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ../${FLATPAK_ID}.metainfo.xml
-        - install -Dm644 --target-directory=${FLATPAK_DEST}/share/applications ../${FLATPAK_ID}.desktop
-        - install -Dm644 --target-directory=${FLATPAK_DEST}/share/icons/hicolor/scalable/apps ../${FLATPAK_ID}.svg
+        - install -Dm644 ../${FLATPAK_ID}.desktop -t /app/share/applications
+        - install -Dm644 ../${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps
+        # Use local copy of the metainfo file to fix some issues
+        - install -Dm644 ../${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo
       sources:
         - type: git
           url: https://github.com/mikesart/gpuvis.git
           tag: 'v0.2'
           commit: fe3d30268eedee65fdbfc06275d0762fd743c469
-        - type: patch
-          path: fix-appdata.patch
+        - type: file
+          path: com.github.gpuvis.Gpuvis.metainfo.xml
