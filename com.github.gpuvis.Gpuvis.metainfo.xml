@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop-application">
+    <id>com.github.gpuvis.Gpuvis</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>MIT</project_license>
+    <name>gpuvis</name>
+    <summary>A GPU Trace Visualizer</summary>
+    <developer_name>Michael Sartain</developer_name>
+    <update_contact>mikesart@fastmail.com</update_contact>
+    <description>
+        <p>
+            Gpuvis is a Linux GPU profiler similar to GPUView on Windows.
+            It is designed to work with trace-cmd captures and help track
+            down Linux gpu and application performance issues.
+        </p>
+        <p>
+            Gpuvis is open-source, so feel free to contribute new features!
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://raw.githubusercontent.com/mikesart/gpuvis/master/images/gpuvis.jpg</image>
+        </screenshot>
+    </screenshots>
+    <url type="homepage">https://github.com/mikesart/gpuvis/wiki</url>
+    <url type="bugtracker">https://github.com/mikesart/gpuvis/issues</url>
+    <url type="vcs-browser">https://github.com/mikesart/gpuvis</url>
+    <launchable type="desktop-id">com.github.gpuvis.Gpuvis.desktop</launchable>
+    <content_rating type="oars-1.1"/>
+    <releases>
+        <release version="0.2" date="2025-10-15">
+            <url>https://github.com/mikesart/gpuvis/releases/tag/v0.2</url>
+        </release>
+        <release version="0.1" date="2022-02-09">
+            <url>https://github.com/mikesart/gpuvis/releases/tag/v0.1</url>
+        </release>
+    </releases>
+</component>
